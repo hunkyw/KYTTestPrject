@@ -4,6 +4,22 @@
         <name>IoTClient</name>
     </assembly>
     <members>
+        <member name="T:IoTClient.Clients.CAN.config.Options">
+             \struct Options
+            节点mata的可选项。
+        </member>
+        <member name="T:IoTClient.Clients.CAN.config.Meta">
+             \struct Meta
+            节点mata信息。
+        </member>
+        <member name="T:IoTClient.Clients.CAN.config.Pair">
+            \struct Pair
+            属性的KeyValue对。
+        </member>
+        <member name="T:IoTClient.Clients.CAN.config.ConfigNode">
+            \struct ConfigNode 
+            ConfigNode
+        </member>
         <member name="T:IoTClient.Clients.ModBus.IModBusClient">
             <summary>
             

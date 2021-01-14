@@ -6,9 +6,70 @@
         xmlns:pu="clr-namespace:Panuon.UI.Silver;assembly=Panuon.UI.Silver"
         xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         xmlns:local="clr-namespace:KYTTest.Industrial"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="空压机测试系统" Height="1080" Width="2560" >
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300">
+
+            </ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid>
+            <Grid.Background>
+                <ImageBrush ImageSource="backgrade.png" Stretch="Uniform" Opacity="0.2"/>
+            </Grid.Background>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="空压机测试系统" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" FontWeight="Black"/>
+            <Border Margin="10 0 10 0" BorderBrush="DarkGray" BorderThickness="0 0 0 1"/>
+            <StackPanel Grid.Row="1">
+                <Button Style="{DynamicResource MaterialDesignRaisedButton}" 
+                        HorizontalAlignment="Center" 
+                        Margin="15 30 15 0" Height="60" Width="250"
+                        materialDesign:ShadowAssist.ShadowDepth="Depth5">
+                    <StackPanel Orientation="Horizontal">
+                        <!--图标-->
+                        <TextBlock Text="&#xe7ee;" FontFamily="/#iconfont" FontSize="30"/>
+                        <!--文字 -->
+                        <TextBlock Text="自动运行状态" VerticalAlignment="Center" Margin="15 0 0 0"/>
+                    </StackPanel>
+                </Button>
+
+                <Button Style="{DynamicResource MaterialDesignRaisedButton}" 
+                        HorizontalAlignment="Center" Background="#E066FF"
+                        Margin="15 30 15 0" Height="60" Width="250"
+                        materialDesign:ShadowAssist.ShadowDepth="Depth5">
+                    <StackPanel Orientation="Horizontal">
+                        <!--图标-->
+                        <TextBlock Text="&#xe729;" FontFamily="/#iconfont" FontSize="30"/>
+                        <!--文字 -->
+                        <TextBlock Text="手动运行状态" VerticalAlignment="Center" Margin="15 0 0 0"/>
+                    </StackPanel>
+                </Button>
+
+                <Button Style="{DynamicResource MaterialDesignRaisedButton}" 
+                        HorizontalAlignment="Center" Background="#9C9C9C"
+                        Margin="15 30 15 0" Height="60" Width="250"
+                        materialDesign:ShadowAssist.ShadowDepth="Depth5">
+                    <StackPanel Orientation="Horizontal">
+                        <!--图标-->
+                        <TextBlock Text="&#xe753;" FontFamily="/#iconfont" FontSize="30"/>
+                        <!--文字 -->
+                        <TextBlock Text="校准传感器  " VerticalAlignment="Center" Margin="15 0 0 0"/>
+                    </StackPanel>
+                </Button>
+                
+            </StackPanel>
+
+
+        </Grid>
+
+
     </Grid>
 </Window>
