@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KYTTest.Industrial"
         mc:Ignorable="d"
-        Title="晶石信息数字车间" Height="900" Width="1520">
+        Title="麓鹏动力燃料电池空压机测试系统" Height="1080" Width="2560">
     <Window.Resources>
         <!--静态资源-->
         <ImageBrush x:Key="leftImage" ImageSource="leftImage.png"/>
@@ -245,7 +245,7 @@
         </Border>
 
         <!--标题-->
-        <TextBlock Text="&#xe612; 晶石信息数字车间" Foreground="White" 
+        <TextBlock Text="&#xe7ba;空压机测试系统" Foreground="White" 
                    FontFamily="fonts/#iconfont"
                    FontSize="26" VerticalAlignment="Center" HorizontalAlignment="Center">
             <TextBlock.Effect>
@@ -257,87 +257,79 @@
         <StackPanel  Grid.Row="1" Margin="10">
             <Expander Style="{DynamicResource ExpanderStyle}">
                 <Expander.Header>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left"
                                 VerticalAlignment="Center" Height="80">
-                        <TextBlock Text="&#xe61b;" FontFamily="../fonts/#iconfont" VerticalAlignment="Center" FontSize="25" Foreground="White" />
+                        <TextBlock Text="&#xe628;" FontFamily="../fonts/#iconfont" VerticalAlignment="Center" FontSize="25" Foreground="White" />
                         <StackPanel Margin="15 0 0 0" VerticalAlignment="Center">
-                            <TextBlock Text="全景视图" FontSize="20" Foreground="White"/>
-                            <TextBlock Text="Panoramic view" FontSize="15" Foreground="White"/>
+                            <TextBlock Text="测试模式" FontSize="20" Foreground="White"/>
+                            <TextBlock Text="Test Mode" FontSize="15" Foreground="White"/>
                         </StackPanel>
                     </StackPanel>
                 </Expander.Header>
                 <Expander.Content>
                     <StackPanel>
                         <RadioButton Style="{StaticResource RadioMiniButtonStyle}" Height="40" Width="240" Margin="5 10 1 5"
-                                 Content="设备驾驶舱" Foreground="White" FontSize="18" />
+                                 Content="自动测试" Foreground="White" FontSize="18" />
                         <RadioButton Style="{StaticResource RadioMiniButtonStyle}" Height="40" Width="240"
-                                 Content="巡检中心" Foreground="White" FontSize="18" />
+                                 Content="手动模式" Foreground="White" FontSize="18" />
                         <RadioButton Style="{StaticResource RadioMiniButtonStyle}" Height="40" Width="240"
-                                 Content="报警中心" Foreground="White" FontSize="18" />
+                                 Content="自动模式手动参数" Foreground="White" FontSize="18" />
                     </StackPanel>
                 </Expander.Content>
             </Expander>
 
             <Expander Style="{DynamicResource ExpanderStyle}" Margin="0 10 0 0">
                 <Expander.Header>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left"
                                 VerticalAlignment="Center" Height="80">
-                        <TextBlock  Text="&#xe614;" FontFamily="../fonts/#iconfont"  VerticalAlignment="Center" FontSize="25" Foreground="White" />
+                        <TextBlock  Text="&#xe69c;" FontFamily="../fonts/#iconfont"  VerticalAlignment="Center" FontSize="25" Foreground="White" />
                         <StackPanel Margin="15 0 0 0" VerticalAlignment="Center">
-                            <TextBlock Text="效率视图" FontSize="20" Foreground="White"/>
-                            <TextBlock Text="Efficency View" FontSize="15" Foreground="White"/>
+                            <TextBlock Text="测试视图设置" FontSize="20" Foreground="White"/>
+                            <TextBlock Text="Test View set" FontSize="15" Foreground="White"/>
                         </StackPanel>
                     </StackPanel>
                 </Expander.Header>
                 <StackPanel>
                     <RadioButton Style="{StaticResource RadioMiniButtonStyle}" Height="40" Width="240" Margin="5 10 1 5"
-                                 Content="设备驾驶舱" Foreground="White" FontSize="18" />
+                                 Content="显示数据选择" Foreground="White" FontSize="18" />
                     <RadioButton Style="{StaticResource RadioMiniButtonStyle}" Height="40" Width="240"
-                                 Content="巡检中心" Foreground="White" FontSize="18" />
+                                 Content="三维图标坐标选择" Foreground="White" FontSize="18" />
                     <RadioButton Style="{StaticResource RadioMiniButtonStyle}" Height="40" Width="240"
-                                 Content="报警中心" Foreground="White" FontSize="18" />
+                                 Content="平面图标坐标选择" Foreground="White" FontSize="18" />
                 </StackPanel>
             </Expander>
 
             <Expander Style="{DynamicResource ExpanderStyle}" Margin="0 10 0 0">
                 <Expander.Header>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left"
                                 VerticalAlignment="Center" Height="80">
-                        <TextBlock  Text="&#xe612;" FontFamily="../fonts/#iconfont"  VerticalAlignment="Center" FontSize="25" Foreground="White" />
+                        <TextBlock  Text="&#xe63e;" FontFamily="../fonts/#iconfont"  VerticalAlignment="Center" FontSize="25" Foreground="White" />
                         <StackPanel Margin="15 0 0 0" VerticalAlignment="Center">
-                            <TextBlock Text="能耗视图" FontSize="20" Foreground="White"/>
-                            <TextBlock Text="Energy View" FontSize="15" Foreground="White"/>
+                            <TextBlock Text="摄像头设置" FontSize="20" Foreground="White"/>
+                            <TextBlock Text="Camera Set" FontSize="15" Foreground="White"/>
                         </StackPanel>
                     </StackPanel>
                 </Expander.Header>
-                <StackPanel>
-                    <RadioButton Style="{StaticResource RadioMiniButtonStyle}" Height="40" Width="240" Margin="5 10 1 5"
-                                 Content="设备驾驶舱" Foreground="White" FontSize="18" />
-                    <RadioButton Style="{StaticResource RadioMiniButtonStyle}" Height="40" Width="240"
-                                 Content="巡检中心" Foreground="White" FontSize="18" />
-                    <RadioButton Style="{StaticResource RadioMiniButtonStyle}" Height="40" Width="240"
-                                 Content="报警中心" Foreground="White" FontSize="18" />
-                </StackPanel>
             </Expander>
 
             <Expander Style="{DynamicResource ExpanderStyle}" Margin="0 10 0 0">
                 <Expander.Header>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left"
                                 VerticalAlignment="Center" Height="80">
-                        <TextBlock  Text="&#xe616;"  FontFamily="../fonts/#iconfont"  VerticalAlignment="Center" FontSize="25" Foreground="White" />
+                        <TextBlock  Text="&#xe785;"  FontFamily="../fonts/#iconfont"  VerticalAlignment="Center" FontSize="25" Foreground="White" />
                         <StackPanel Margin="15 0 0 0" VerticalAlignment="Center">
-                            <TextBlock Text="监控设置" FontSize="20" Foreground="White"/>
-                            <TextBlock Text="Settings" FontSize="15" Foreground="White"/>
+                            <TextBlock Text="产品信息" FontSize="20" Foreground="White"/>
+                            <TextBlock Text="Product Information" FontSize="15" Foreground="White"/>
                         </StackPanel>
                     </StackPanel>
                 </Expander.Header>
                 <StackPanel>
                     <RadioButton Style="{StaticResource RadioMiniButtonStyle}" Height="40" Width="240" Margin="5 10 1 5"
-                                 Content="设备驾驶舱" Foreground="White" FontSize="18" />
+                                 Content="产品信息录入" Foreground="White" FontSize="18" />
                     <RadioButton Style="{StaticResource RadioMiniButtonStyle}" Height="40" Width="240"
-                                 Content="巡检中心" Foreground="White" FontSize="18" />
+                                 Content="当前测试产品信息" Foreground="White" FontSize="18" />
                     <RadioButton Style="{StaticResource RadioMiniButtonStyle}" Height="40" Width="240"
-                                 Content="报警中心" Foreground="White" FontSize="18" />
+                                 Content="当前产品生产过程" Foreground="White" FontSize="18" />
                 </StackPanel>
             </Expander>
 
