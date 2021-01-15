@@ -122,6 +122,32 @@
   <ItemGroup>
     <Resource Include="backgrade.png" />
   </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="leftImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="leftImageSub.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="topImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\buttonImage.png" />
+    <Resource Include="images\centerImage.png" />
+    <Resource Include="images\drop.png" />
+    <Resource Include="images\img3d.png" />
+    <Resource Include="images\leftback.png" />
+    <Resource Include="images\leftImage.png" />
+    <Resource Include="images\leftImageSub.png" />
+    <Resource Include="images\rightImage.png" />
+    <Resource Include="images\timeback.png" />
+    <Resource Include="images\topback.png" />
+    <Resource Include="images\topImage.png" />
+    <Resource Include="images\vs.jpg" />
+    <Resource Include="images\中部选择栏选中-1.png" />
+    <Resource Include="images\中部选择栏选中-2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.3.2.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.3.2.0\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
