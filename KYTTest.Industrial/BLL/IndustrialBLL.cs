@@ -6,18 +6,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using KYTTest.communication;
+using KYTTest.Industrial.DAL;
+using KYTTest.Industrial.Model;
+using System.Data;
 
 namespace KYTTest.Industrial.BLL
 {
     class IndustrialBLL
     {
+        DataAccess da = new DataAccess();
         /// <summary>
         /// 获取串口设备信息
         /// </summary>
         public DataResult<SerialInfo> InitSerialInfo()
         {
             DataResult<SerialInfo> result = new DataResult<SerialInfo>();
-            result.State = false;
+
 
             try
             {
@@ -35,6 +39,34 @@ namespace KYTTest.Industrial.BLL
             {
                 result.Mseeage = ex.Message;
 
+            }
+            return result;
+        }
+        /// <summary>
+        /// 获取通信配置
+        /// </summary>
+
+        public DataResult<TestdataModel> InitTestdataModel()
+        {
+            DataResult<TestdataModel> result = new DataResult<TestdataModel>();
+
+            try
+            {
+                TestdataModel mode = new TestdataModel();
+
+                var sa = da.GetTestData();
+                var values = (from q in sa.AsEnumerable()
+                              select new TestdataModel
+                              {
+                                  
+                              }).ToList();
+
+                result.State = true;
+                //result.Data = ;
+            }
+            catch(Exception ex)
+            {
+                result.Mseeage = ex.Message;
             }
             return result;
         }

@@ -11,7 +11,7 @@ namespace KYTTest.Industrial.BLL
     /// </summary>
     public class DataResult<T>
     {
-        public bool State { get; set; }
+        public bool State { get; set; } = false;
 
         public string Mseeage { get; set; }
 
