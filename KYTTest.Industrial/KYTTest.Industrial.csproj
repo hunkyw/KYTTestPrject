@@ -127,6 +127,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="BLL\DataResult.cs" />
+    <Compile Include="BLL\IndustrialBLL.cs" />
     <Compile Include="DAL\DataAccess.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -165,6 +167,14 @@
     <ProjectReference Include="..\IoTClient\IoTClient.csproj">
       <Project>{40b106bc-1d17-4aad-8372-0120169f65c1}</Project>
       <Name>IoTClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KYJTest.Controls\KYJTest.Controls.csproj">
+      <Project>{b6fd7db9-ff7e-4d31-8cec-8c33308bdf3d}</Project>
+      <Name>KYJTest.Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KYTTest.communication\KYTTest.communication.csproj">
+      <Project>{819ba2db-2584-4e61-8420-f46a3a209f04}</Project>
+      <Name>KYTTest.communication</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
