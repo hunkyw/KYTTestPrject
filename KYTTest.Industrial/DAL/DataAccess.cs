@@ -62,9 +62,9 @@ namespace KYTTest.Industrial.DAL
         /// <summary>
         /// 获取当前测试数据 返回datatable表
         /// </summary>
-        public DataTable GetTestNowData()
+        public DataTable GetTestConfig()
         {
-            string strsql = "select * from test_data_now";
+            string strsql = "select * from test_config";
             return this.ExecuteQuery(TestDataSaveConfig, strsql);
         }
         /// <summary>
@@ -75,5 +75,38 @@ namespace KYTTest.Industrial.DAL
             string strsql = "select * from test_derive_config";
             return this.ExecuteQuery(TestDataSaveConfig, strsql);
         }
+        /// <summary>
+        /// 获取modebus通信协议 返回datatable表
+        /// </summary>
+        public DataTable GetmodebudAgr()
+        {
+            string strsql = "select * from storage_area_modebus";
+            return this.ExecuteQuery(TestDataSaveConfig, strsql);
+        }
+        /// <summary>
+        /// 获取siemens通信协议 返回datatable表
+        /// </summary>
+        public DataTable GetSiemensAgr()
+        {
+            string strsql = "select * from storage_area_siemens";
+            return this.ExecuteQuery(TestDataSaveConfig, strsql);
+        }
+        /// <summary>
+        /// 获取can通信协议 返回datatable表
+        /// </summary>
+        public DataTable GetCanAgr()
+        {
+            string strsql = "select * from storage_area_can";
+            return this.ExecuteQuery(TestDataSaveConfig, strsql);
+        }
+        /// <summary>
+        /// 获取can通信配置 返回datatable表
+        /// </summary>
+        public DataTable GetCanConfig()
+        {
+            string strsql = "select * from can_config";
+            return this.ExecuteQuery(TestDataSaveConfig, strsql);
+        }
+
     }
 }
