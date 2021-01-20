@@ -16,7 +16,7 @@ namespace KYTTest.Industrial.BLL
     {
         DataAccess da = new DataAccess();
         /// <summary>
-        /// 获取串口设备信息
+        /// 获取串口设备信息/当前为从app.config中获取
         /// </summary>
         public DataResult<SerialInfo> InitSerialInfo()
         {
@@ -43,26 +43,29 @@ namespace KYTTest.Industrial.BLL
             return result;
         }
         /// <summary>
-        /// 获取通信配置
+        /// 获取modbus通信协议
         /// </summary>
 
-        public DataResult<TestdataModel> InitTestdataModel()
+        public DataResult<List<ModebusModel>> InitModeBusModel()
         {
-            DataResult<TestdataModel> result = new DataResult<TestdataModel>();
+            DataResult<List<ModebusModel>> result = new DataResult<List<ModebusModel>>();
 
             try
             {
-                TestdataModel mode = new TestdataModel();
+                ModebusModel mode = new ModebusModel();
 
-                var sa = da.GetTestData();
-                var values = (from q in sa.AsEnumerable()
-                              select new TestdataModel
-                              {
-                                  
-                              }).ToList();
+                var sa = da.GetmodebudAgr();
 
                 result.State = true;
-                //result.Data = ;
+                result.Data = (from q in sa.AsEnumerable()
+                                  select new ModebusModel
+                                  {
+                                      id = q.Field<string>("id"),
+                                      SlaveAddress = q.Field<Int32>("slave_add"),
+                                      FuncCode = q.Field<string>("func_code"),
+                                      StartAddress = int.Parse(q.Field<string>("start_reg")),
+                                      Length = int.Parse(q.Field<string>("length"))
+                                  }).ToList();
             }
             catch(Exception ex)
             {
@@ -70,5 +73,38 @@ namespace KYTTest.Industrial.BLL
             }
             return result;
         }
+
+        public DataResult<List<DeviceMode>> InitDevices()
+        {
+            DataResult<List<DeviceMode>> result = new DataResult<List<DeviceMode>>();
+            try
+            {
+                var devices = da.GetTestderive();
+                var Monitor_Values = da.GetMonitorValues();
+
+                List<DeviceMode> deviceList = new List<DeviceMode>();
+                foreach(var dr in devices.AsEnumerable())
+                {
+                    DeviceMode dModel = new DeviceMode();
+                    deviceList.Add(dModel);
+
+                    dModel.DeviceID = dr.Field<string>("station_id");
+                    dModel.DeviceName = dr.Field<string>("station_name");
+                    dModel.DeviceConnType = dr.Field<Int32>("station_conn_type");
+                }
+
+            }
+            catch(Exception ex)
+            {
+                result.Mseeage = ex.Message;
+            }
+
+
+
+            return result;
+        }
+
     }
+
+
 }

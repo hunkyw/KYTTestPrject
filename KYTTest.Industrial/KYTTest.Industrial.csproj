@@ -136,7 +136,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\TestdataModel.cs" />
+    <Compile Include="Model\DeviceMode.cs" />
+    <Compile Include="Model\ModebusModel.cs" />
+    <Compile Include="Model\MonitorValueModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

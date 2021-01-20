@@ -107,6 +107,14 @@ namespace KYTTest.Industrial.DAL
             string strsql = "select * from can_config";
             return this.ExecuteQuery(TestDataSaveConfig, strsql);
         }
+        /// <summary>
+        /// 获取can通信配置 返回datatable表
+        /// </summary>
+        public DataTable GetMonitorValues()
+        {
+            string strsql = "select * from monitor_values";
+            return this.ExecuteQuery(TestDataSaveConfig, strsql);
+        }
 
     }
 }
