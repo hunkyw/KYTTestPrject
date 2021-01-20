@@ -74,6 +74,10 @@ namespace KYTTest.Industrial.BLL
             return result;
         }
 
+        /// <summary>
+        /// 获取设备名及通信协议
+        /// </summary>
+
         public DataResult<List<DeviceMode>> InitDevices()
         {
             DataResult<List<DeviceMode>> result = new DataResult<List<DeviceMode>>();
