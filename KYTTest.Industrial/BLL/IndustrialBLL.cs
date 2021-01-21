@@ -84,7 +84,7 @@ namespace KYTTest.Industrial.BLL
             try
             {
                 var devices = da.GetTestderive();
-                var Monitor_Values = da.GetMonitorValues();
+                var MonitorValues = da.GetMonitorValues();
 
                 List<DeviceMode> deviceList = new List<DeviceMode>();
                 foreach(var dr in devices.AsEnumerable())
@@ -95,6 +95,14 @@ namespace KYTTest.Industrial.BLL
                     dModel.DeviceID = dr.Field<string>("station_id");
                     dModel.DeviceName = dr.Field<string>("station_name");
                     dModel.DeviceConnType = dr.Field<Int32>("station_conn_type");
+
+                    foreach (var mv in MonitorValues.AsEnumerable().Where(m => m.Field<string>("id") == dModel.DeviceID))
+                    {
+                        MonitorValueModel mvm = new MonitorValueModel();
+                        dModel.MonitorValueList.Add(mvm);
+
+                        mvm.ValueID = mv.Field<string>("value_id");
+                    }
                 }
 
             }
@@ -107,7 +115,37 @@ namespace KYTTest.Industrial.BLL
 
             return result;
         }
+        /// <summary>
+        /// 获取CAN通信协议
+        /// </summary>
 
+        public DataResult<List<CanMode>> InitCANMode()
+        {
+            DataResult<List<CanMode>> result = new DataResult<List<CanMode>>();
+            try
+            {
+                var devices = da.GetTestderive();
+                var Monitor_Values = da.GetMonitorValues();
+
+                List<CanMode> deviceList = new List<CanMode>();
+                foreach (var dr in devices.AsEnumerable())
+                {
+                    CanMode dModel = new CanMode();
+                    deviceList.Add(dModel);
+                    //TODO:完成CAN报文
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                result.Mseeage = ex.Message;
+            }
+
+
+
+            return result;
+        }
     }
 
 

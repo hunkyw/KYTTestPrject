@@ -108,7 +108,7 @@ namespace KYTTest.Industrial.DAL
             return this.ExecuteQuery(TestDataSaveConfig, strsql);
         }
         /// <summary>
-        /// 获取can通信配置 返回datatable表
+        /// 获取当前测试值 返回datatable表
         /// </summary>
         public DataTable GetMonitorValues()
         {
