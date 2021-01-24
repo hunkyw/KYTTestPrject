@@ -13,6 +13,8 @@ namespace KYTTest.Industrial.Model
         public string DeviceName { get; set; } //设备名称
         public int DeviceConnType { get; set; }//设备通信方式
 
+        public bool IsWarning { get; set; } = false;//报警状态
+
         /// <summary>
         /// 初始化设备测量值内容
         /// </summary>

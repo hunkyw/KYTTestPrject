@@ -9,6 +9,7 @@ using KYTTest.communication;
 using KYTTest.Industrial.DAL;
 using KYTTest.Industrial.Model;
 using System.Data;
+using System.Windows;
 
 namespace KYTTest.Industrial.BLL
 {
@@ -102,7 +103,50 @@ namespace KYTTest.Industrial.BLL
                         dModel.MonitorValueList.Add(mvm);
 
                         mvm.ValueID = mv.Field<string>("value_id");
-                    }
+                        mvm.ValueName = mv.Field<string>("value_name");
+                        mvm.StorageAreaID = mv.Field<string>("s_srea_id");
+                        mvm.StartAddress = mv.Field<Int32>("address");
+                        mvm.DataType = mv.Field<string>("data_type");
+                        mvm.IsAlarm = mv.Field<Int32>("is_alarm") == 1;
+                        mvm.ValueDesc = mv.Field<string>("description");
+                        mvm.Unit = mv.Field<string>("unit");
+
+
+                        // 警戒值
+                        var column = mv.Field<string>("alarm_lolo");
+                        mvm.LoLoAlarm = column == null ? 0.0 : double.Parse(column);
+                        column = mv.Field<string>("alarm_low");
+                        mvm.LowAlarm = column == null ? 0.0 : double.Parse(column);
+                        column = mv.Field<string>("alarm_high");
+                        mvm.HighAlarm = column == null ? 0.0 : double.Parse(column);
+                        column = mv.Field<string>("alarm_hihi");
+                        mvm.HiHiAlarm = column == null ? 0.0 : double.Parse(column);
+                        mvm.ValueStateChanged = (state, msg, value_id) =>
+                        {
+                            try
+                            {
+                                Application.Current?.Dispatcher.Invoke(() =>
+                                {
+                                    var index = dModel.WarningMessageList.ToList().FindIndex(w => w.ValueID == value_id);
+                                    if (index > -1)
+                                        dModel.WarningMessageList.RemoveAt(index);
+
+                                    if (state != Base.MonitorValueState.OK)
+                                    {
+                                        dModel.IsWarning = true;
+                                        dModel.WarningMessageList.Add(new WarningMessageModel { ValueID = value_id, Message = msg });
+                                    }
+                                });
+
+                                var ss = dModel.WarningMessageList.Count > 0;
+                                if (dModel.IsWarning != ss)
+                                {
+                                    dModel.IsWarning = ss;
+                                }
+                            }
+                            catch { }
+                        };
+                    }       
                 }
 
             }
