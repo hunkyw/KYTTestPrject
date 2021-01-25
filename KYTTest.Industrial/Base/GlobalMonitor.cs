@@ -16,6 +16,7 @@ namespace KYTTest.Industrial.Base
         public static List<DeviceMode> DeviceList { get; set; } = new List<DeviceMode>();
 
         public static SerialInfo SerialInfo { get; set; }
+
         static bool isRunning = true;
 
         static Task mainTask = null;
