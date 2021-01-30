@@ -37,5 +37,6 @@ namespace KYTTest.Industrial.Base
             if (mainTask != null)
                 mainTask.Wait();
         }
+
     }
 }
