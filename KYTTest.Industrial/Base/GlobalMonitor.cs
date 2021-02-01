@@ -1,4 +1,5 @@
 ﻿using KYTTest.communication;
+using KYTTest.Industrial.BLL;
 using KYTTest.Industrial.Model;
 using System;
 using System.Collections.Generic;
@@ -20,10 +21,23 @@ namespace KYTTest.Industrial.Base
         static bool isRunning = true;
 
         static Task mainTask = null;
-        public static void Start()
+        public static void Start(Action sucessAction, Action <string> faultAction)
         {
             Task.Run(() =>
             {
+                IndustrialBLL bll = new IndustrialBLL();
+                var si = bll.InitSerialInfo();
+                if (si.State)
+                {
+                    SerialInfo = si.Data;
+                }
+                else
+                {
+                    faultAction(si.Mseeage); return;
+                }
+
+                sucessAction();
+
                 while(isRunning)
                 {
                     

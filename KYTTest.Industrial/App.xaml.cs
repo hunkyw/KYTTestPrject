@@ -17,7 +17,16 @@ namespace KYTTest.Industrial
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-            GlobalMonitor.Start();
+            GlobalMonitor.Start(
+                () => 
+                { 
+                    new MainWindow().Show(); 
+                },
+                (msg) => 
+                {
+
+                }
+            );
         }
     }
 }
