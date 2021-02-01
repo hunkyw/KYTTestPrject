@@ -19,14 +19,29 @@ namespace KYTTest.Industrial
             base.OnStartup(e);
             GlobalMonitor.Start(
                 () => 
-                { 
-                    new MainWindow().Show(); 
+                {
+                    Application.Current.Dispatcher.Invoke(() => 
+                    {
+                        new MainWindow().Show(); 
+                    });
+                    
                 },
                 (msg) => 
                 {
-
+                    Application.Current.Dispatcher.Invoke(() =>
+                    {
+                        MessageBox.Show(msg,"系统启动失败");
+                        Application.Current.Shutdown();
+                    });
                 }
             );
+        }
+
+        protected override void OnExit(ExitEventArgs e)
+        {
+            GlobalMonitor.Dispose();
+
+            base.OnExit(e);
         }
     }
 }

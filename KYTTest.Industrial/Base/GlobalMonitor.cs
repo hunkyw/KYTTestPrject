@@ -26,6 +26,7 @@ namespace KYTTest.Industrial.Base
             Task.Run(() =>
             {
                 IndustrialBLL bll = new IndustrialBLL();
+                //获取串口配置信息
                 var si = bll.InitSerialInfo();
                 if (si.State)
                 {
@@ -33,10 +34,17 @@ namespace KYTTest.Industrial.Base
                 }
                 else
                 {
-                    faultAction(si.Mseeage); return;
+                    faultAction(si.Mseeage); return;//失败回调
                 }
 
-                sucessAction();
+                //获取存储区信息
+                var sa = bll.InitDevices();
+
+                if (sa.State)
+                    StorageList = sa.Data;
+
+
+                sucessAction();//成功回调
 
                 while(isRunning)
                 {
