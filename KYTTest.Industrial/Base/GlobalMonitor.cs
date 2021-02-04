@@ -38,11 +38,14 @@ namespace KYTTest.Industrial.Base
                 }
 
                 //获取存储区信息
-                var sa = bll.InitDevices();
+                var sa = bll.InitModeBusModel();
 
                 if (sa.State)
                     StorageList = sa.Data;
 
+                var dr = bll.InitDevices();
+                if (dr.State)
+                    DeviceList = dr.Data;
 
                 sucessAction();//成功回调
 
